@@ -1,0 +1,23 @@
+#include "../Socket.hpp"
+#include <iostream>
+using namespace std;
+
+#define IP   "127.0.0.1"
+#define PORT 10010
+
+int main()
+{
+    TCP client;
+    client.connect_to(Address(IP, PORT));
+    cout << "sending ..." << endl;
+    //bool flag_send=false;
+    //flag_send=client.send_file("in.jpg");
+    //if(flag_send==true)
+    //{
+    char word[]="send file finished !";
+    //int ret = client.Write(word, sizeof(word));
+    int ret = client.Send(word, sizeof(word));
+    cout<<ret<<endl;
+    //}
+    return 0;
+}
